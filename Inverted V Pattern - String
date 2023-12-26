@@ -1,0 +1,58 @@
+Inverted V Pattern - String
+```````````````````````````
+The program must accept a string S as the input. The program must print the desired pattern as shown
+in the Example Input/Output section.
+Note: The length of S is always odd.
+
+Boundary Condition(s):
+3 <= Length of S <= 99
+
+Input Format:
+The first line contains S.
+
+Output Format:
+The lines containing the desired pattern as shown in the Example Input/Output section.
+
+Example Input/Output 1:
+Input:
+skill
+
+Output:
+**i**
+*k*l*
+s***l
+
+Example Input/Output 2:
+Input:
+TELEPHONE
+
+Output:
+****P****
+***E*H***
+**L***O**
+*E*****N*
+T*******E
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		
+		String s = new Scanner(System.in).next();
+		
+		int Length = s.length();
+		
+		for(int i = 0; i <= Length / 2; i++, System.out.println()){
+		    for(int j = 0; j < Length; j++){
+		        if(j == (Length / 2) - i || j == (Length / 2) + i) 
+                System.out.print(s.charAt(j));
+		        else
+		            System.out.print("*");
+		    }
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
