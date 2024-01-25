@@ -1,0 +1,238 @@
+Digital Number - Pattern
+````````````````````````
+The program must accept two integers M and N as the input. The program must print the desired
+pattern as shown in the Example Input/Output section.
+Note: N is always odd.
+
+Boundary Condition(s):
+0 <= M <= 9
+5 <= N <= 99
+
+Input Format:
+The first line contains M and N separated by a space.
+
+Output Format:
+The first N lines contain the desired pattern as shown in the Example Input/Output section.
+
+Example Input/Output 1:
+Input:
+1 7
+
+Output:
+******1
+******1
+******1
+******1
+******1
+******1
+******1
+
+Example Input/Output 2:
+Input:
+5 5
+
+Output:
+55555
+5****
+55555
+****5
+55555
+
+Example Input/Output 3:
+Input:
+2 7
+
+Output:
+2222222
+******2
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.*;
+public class Hello {
+    
+    private static void fillStar(char[][] digit){
+        for(char row[] : digit)
+            Arrays.fill(row, '*');
+    }
+    
+    private static void fillRow(char[][] digit, int index, int m){
+        Arrays.fill(digit[index], (char)(m + '0'));
+    }
+    
+    private static void fillCol(char[][] digit,int row, int st, int en, int m){
+        for( ; st < en; st++)
+            digit[st][row] = (char)(m + '0');
+    }
+
+    public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int m = sc.nextInt();
+		int n = sc.nextInt();
+		
+		char digit[][] = new char[n][n];
+		
+		fillStar(digit);
+		if(m == 0){
+		    fillRow(digit, 0, m);
+		    fillRow(digit, n - 1, m);
+		    fillCol(digit, 0, 1, n - 1, m);
+		    fillCol(digit, n - 1, 1, n - 1, m);
+		}
+		else if(m == 1){
+		    fillCol(digit, n - 1, 0, n, m);
+		}
+        else if(m == 2){
+            fillRow(digit, 0, m);
+            fillRow(digit, n / 2, m);
+            fillRow(digit, n - 1, m);
+            fillCol(digit, n - 1, 0, n / 2, m);
+            fillCol(digit, 0, n / 2, n, m);
+        }
+	    else if(m == 3){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, n - 1, 0, n, m);
+	    }
+	    else if(m == 4){
+	        fillCol(digit, n - 1, 0, n, m);
+	        fillCol(digit, 0, 0, n / 2, m);
+	        fillRow(digit, n / 2, m);
+	    }
+	    else if(m == 5){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n / 2, m);
+	        fillCol(digit, n - 1, n / 2, n, m);
+	    }
+	    else if(m == 6){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n - 1, m);
+	        fillCol(digit, n - 1, n / 2, n, m);
+	    }
+	    else if(m == 7){
+	        fillRow(digit, 0, m);
+	        fillCol(digit, n - 1, 0, n, m);
+	    }
+	    else if(m == 8){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n - 1, m);
+	        fillCol(digit, n - 1, 0, n - 1, m);
+	    }
+	    else if(m == 9){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n / 2, m);
+	        fillCol(digit, n - 1, 0, n, m);
+	    }
+	    
+	    for(char[] row : digit)
+	    {
+	        for(char col : row)
+	            System.out.print(col);
+            System.out.println();	            
+	    }
+    }
+}import java.util.*;
+public class Hello {
+    
+    private static void fillStar(char[][] digit){
+        for(char row[] : digit)
+            Arrays.fill(row, '*');
+    }
+    
+    private static void fillRow(char[][] digit, int index, int m){
+        Arrays.fill(digit[index], (char)(m + '0'));
+    }
+    
+    private static void fillCol(char[][] digit,int row, int st, int en, int m){
+        for( ; st < en; st++)
+            digit[st][row] = (char)(m + '0');
+    }
+
+    public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int m = sc.nextInt();
+		int n = sc.nextInt();
+		
+		char digit[][] = new char[n][n];
+		
+		fillStar(digit);
+		if(m == 0){
+		    fillRow(digit, 0, m);
+		    fillRow(digit, n - 1, m);
+		    fillCol(digit, 0, 1, n - 1, m);
+		    fillCol(digit, n - 1, 1, n - 1, m);
+		}
+		else if(m == 1){
+		    fillCol(digit, n - 1, 0, n, m);
+		}
+        else if(m == 2){
+            fillRow(digit, 0, m);
+            fillRow(digit, n / 2, m);
+            fillRow(digit, n - 1, m);
+            fillCol(digit, n - 1, 0, n / 2, m);
+            fillCol(digit, 0, n / 2, n, m);
+        }
+	    else if(m == 3){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, n - 1, 0, n, m);
+	    }
+	    else if(m == 4){
+	        fillCol(digit, n - 1, 0, n, m);
+	        fillCol(digit, 0, 0, n / 2, m);
+	        fillRow(digit, n / 2, m);
+	    }
+	    else if(m == 5){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n / 2, m);
+	        fillCol(digit, n - 1, n / 2, n, m);
+	    }
+	    else if(m == 6){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n - 1, m);
+	        fillCol(digit, n - 1, n / 2, n, m);
+	    }
+	    else if(m == 7){
+	        fillRow(digit, 0, m);
+	        fillCol(digit, n - 1, 0, n, m);
+	    }
+	    else if(m == 8){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n - 1, m);
+	        fillCol(digit, n - 1, 0, n - 1, m);
+	    }
+	    else if(m == 9){
+	        fillRow(digit, 0, m);
+	        fillRow(digit, n / 2, m);
+	        fillRow(digit, n - 1, m);
+	        fillCol(digit, 0, 0, n / 2, m);
+	        fillCol(digit, n - 1, 0, n, m);
+	    }
+	    
+	    for(char[] row : digit)
+	    {
+	        for(char col : row)
+	            System.out.print(col);
+            System.out.println();	            
+	    }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
